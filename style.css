@@ -1,7 +1,9 @@
 html {
     font-size: 62.5%;
     --sidebar-color: #0ea5e9;
-    --search-bar-color: #bae6fd;
+    --search-bar-color: #e5e7eb;
+    --text-color: gray;
+    --cards-background-color: white;
 }
 
 * {
@@ -28,7 +30,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 1fr;
-    box-shadow: 0 0 1rem gray;
+    box-shadow: 0 0 1rem var(--text-color);
     padding: 2rem 0 2rem 4rem;
     gap: 2rem;
     z-index: 1;
@@ -67,7 +69,12 @@ body {
     justify-content: center;
 }
 
-#header-user-info img {
+#header-search-bar img, #header-user-info img {
+    width: 2.5rem;
+    height: 3rem;
+}
+
+#header-user-info img#user-icon {
     background-color: var(--sidebar-color);
     border-radius: 4rem;
     width: 5rem;
@@ -164,7 +171,7 @@ body {
     grid-template-rows: auto;
     padding: 2rem 4rem;
     gap: 3rem;
-    background-color: #e5e7eb;
+    background-color: var(--search-bar-color);
     z-index: -1;
     align-items: flex-start;
 }
@@ -186,23 +193,24 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: var(--cards-background-color);
     border-radius: 1.2rem;
-    box-shadow: 0.2rem 0.2rem 0.5rem gray;
+    box-shadow: 0.2rem 0.2rem 0.5rem var(--text-color);
     padding: 3rem 2rem;
-    border-left: 7px solid orange;
+    border-left: 7px solid var(--sidebar-color);
     display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    gap: 1rem;
 }
 
 .card p {
     font-weight: 400;
-    color: gray;
+    color: var(--text-color);
 }
 
 .card .card-buttons {
     width: max-content;
     justify-self: end;
-    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
@@ -217,12 +225,12 @@ body {
 
         /* ANNOUNCEMENTS */
 #announcements {
-    background-color: white;
+    background-color: var(--cards-background-color);
     padding: 3rem 2.5rem;
     font-size: 1.4rem;
     border-radius: 1.2rem;
-    box-shadow: 0.2rem 0.2rem 0.5rem gray;
-    margin-bottom: 2rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem var(--text-color);
+    margin-bottom: 4.5rem;
 }
 
 .announcements-content:not(.first) {
@@ -240,15 +248,15 @@ body {
 }
 
 .announcements-content p {
-    color: gray;
+    color: var(--text-color);
 }
 
         /* TRENDING */
 #trending {
-    background-color: white;
+    background-color: var(--cards-background-color);
     padding: 2rem 3rem;
     border-radius: 1.2rem;
-    box-shadow: 0.2rem 0.2rem 0.5rem gray;
+    box-shadow: 0.2rem 0.2rem 0.5rem var(--text-color);
 }
 
 .trending-content {
@@ -257,6 +265,10 @@ body {
     gap: 2rem;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.trending-content.last-card {
+    margin-bottom: 0;
 }
 
 .trending-content img {
@@ -271,5 +283,5 @@ body {
 }
 
 .trending-content p {
-    color: gray;
+    color: var(--text-color);
 }
